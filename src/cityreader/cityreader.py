@@ -30,6 +30,7 @@ def cityreader(cities=[]):
             city = City(row[0], row[3], row[4])
   # `cities` list
             cities.append(city)
+        cities.pop(0)
     
     return (cities)
 
