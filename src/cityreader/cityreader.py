@@ -4,8 +4,8 @@ import csv
 class City:
     def __init__(self, name, lat, lon):
         self.name = name
-        self.lat = lat
-        self.lon = lon
+        self.lat = float(lat)
+        self.lon = float(lon)
 
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
@@ -23,14 +23,14 @@ cities = []
 
 def cityreader(cities=[]):
   # TODO Implement the functionality to read from the 'cities.csv' file
-    with open('src/cityreader/cities.csv', newline='') as csvfile:
+    with open('src/cityreader/cities.csv') as csvfile:
         reader = csv.reader(csvfile)
+        next(reader)
   # For each city record, create a new City instance and add it to the 
         for row in reader:
             city = City(row[0], row[3], row[4])
   # `cities` list
             cities.append(city)
-        cities.pop(0)
     
     return (cities)
 
